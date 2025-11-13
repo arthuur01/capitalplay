@@ -1,0 +1,10 @@
+{
+  "dependencies": {
+    "@next/font": "^14.2.15",
+    "firebase": "^12.5.0",
+    "nprogress": "^0.2.0"
+  },
+  "devDependencies": {
+    "@types/nprogress": "^0.2.3"
+  }
+}
