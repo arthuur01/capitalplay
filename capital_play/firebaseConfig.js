@@ -6,12 +6,12 @@ import { getAuth } from "firebase/auth";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyAhhB-9OG7emo9_MUyfAHN1mwydbSd6HhQ",
-  authDomain: "capitalplay-fb658.firebaseapp.com",
-  projectId: "capitalplay-fb658",
-  storageBucket: "capitalplay-fb658.firebasestorage.app",
-  messagingSenderId: "372438313190",
-  appId: "1:372438313190:web:63cd7140da5055e9ea3327"
+  apiKey: process.env.NEXT_PUBLIC_API_KEY,
+  authDomain: process.env.NEXT_PUBLIC_AUTH_DOMAIN,
+  projectId: process.env.NEXT_PUBLIC_PROJECT_ID,
+  storageBucket: process.env.NEXT_PUBLIC_STORAGE_BUCKET,
+  messagingSenderId: process.env.NEXT_PUBLIC_MESSAGING_SENDER_ID,
+  appId: process.env.NEXT_PUBLIC_APP_ID
 };
 
 // Initialize Firebase
