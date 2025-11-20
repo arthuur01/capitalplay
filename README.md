@@ -7,11 +7,6 @@ Primeiro, instale dependências
 ```bash
 npm install
 ```
-Segundo, coloque o terminal no diretório correto e instale dependências⚙️
-```bash
-cd capital_play
-npm install
-```
 Terceiro, iniciar o servidor no localhost🗄️
 ```bash
 npm run dev
