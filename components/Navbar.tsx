@@ -22,15 +22,24 @@ export default function Navbar() {
   }, []);
 
   const loginGoogle = async () => {
-    const provider = new GoogleAuthProvider();
-    try {
-      await signInWithPopup(auth, provider);
-      router.push('/dashboard');
-    } catch (error) {
-      console.error("Erro ao logar com Google:", error);
-      alert("Erro ao autenticar.");
+  const provider = new GoogleAuthProvider();
+
+  try {
+    const result = await signInWithPopup(auth, provider);
+    const loggedUser = result.user;
+
+    if (!loggedUser.email) return;
+
+    if (loggedUser.email === "capitalplay01@gmail.com") {
+      router.push("/admin");
+    } else {
+      router.push("/dashboard");
     }
-  };
+  } catch (error) {
+    console.error("Erro ao logar com Google:", error);
+    alert("Erro ao autenticar.");
+  }
+};
 
   useEffect(() => {
     const onScroll = () => setIsScrolled(window.scrollY > 0);

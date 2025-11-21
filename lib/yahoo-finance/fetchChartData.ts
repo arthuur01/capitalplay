@@ -2,11 +2,11 @@ import { unstable_noStore as noStore } from "next/cache"
 import type {
   ChartOptions,
   ChartResultArray,
-} from "@/node_modules/yahoo-finance2/dist/esm/src/modules/chart"
+} from "yahoo-finance2/modules/chart"
 import type { Interval, Range } from "@/types/yahoo-finance"
 import { DEFAULT_RANGE, INTERVALS_FOR_RANGE, VALID_RANGES } from "./constants"
 import { CalculateRange } from "@/lib/utils"
-import yahooFinance from "yahoo-finance2"
+import yahooFinance from "@/lib/yahoo-finance/client"
 
 export const validateRange = (range: string): Range =>
   VALID_RANGES.includes(range as Range) ? (range as Range) : DEFAULT_RANGE
@@ -29,10 +29,10 @@ export async function fetchChartData(
   }
 
   try {
-    const chartData: ChartResultArray = await yahooFinance.chart(
+    const chartData = await yahooFinance.chart(
       ticker,
       queryOptions
-    )
+    ) as ChartResultArray
 
     return chartData
   } catch (error) {

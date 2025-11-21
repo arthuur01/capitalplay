@@ -1,5 +1,5 @@
 import { unstable_noStore as noStore } from "next/cache"
-import yahooFinance from "yahoo-finance2"
+import yahooFinance from "@/lib/yahoo-finance/client"
 
 export async function fetchQuote(ticker: string) {
   noStore()

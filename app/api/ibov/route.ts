@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server"
-import yahooFinance from "yahoo-finance2"
+import yahooFinance from "@/lib/yahoo-finance/client"
 
 // Simple cache: revalidate every 60s
 export const revalidate = 60

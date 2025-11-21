@@ -3,8 +3,8 @@ import type {
   ScreenerOptions,
   PredefinedScreenerModules,
   ScreenerResult,
-} from "@/node_modules/yahoo-finance2/dist/esm/src/modules/screener"
-import yahooFinance from "yahoo-finance2"
+} from "yahoo-finance2/modules/screener"
+import yahooFinance from "@/lib/yahoo-finance/client"
 
 const ITEMS_PER_PAGE = 40
 
@@ -21,9 +21,9 @@ export async function fetchScreenerStocks(query: string, count?: number) {
   }
 
   try {
-    const response: ScreenerResult = await yahooFinance.screener(queryOptions, {
+    const response = await yahooFinance.screener(queryOptions, undefined, {
       validateResult: false,
-    })
+    }) as ScreenerResult
 
     return response
   } catch (error) {
