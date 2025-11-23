@@ -4,11 +4,20 @@ import * as React from "react"
 import { AppSidebar } from "@/components/app-sidebar"
 import { SiteHeader } from "@/components/site-header"
 import { SidebarInset, SidebarProvider } from "@/components/ui/sidebar"
+import { PrivateRoute } from "@/components/PrivateRoute"
 import { TradingViewAdvancedChart } from "@/components/tradingview-advanced-chart"
 import { TradingViewMarketOverview } from "@/components/tradingview-market-overview"
 import { TradingViewSymbolInfo } from "@/components/tradingview-symbol-info"
 
 export default function BolsasPage() {
+  return (
+    <PrivateRoute>
+      <BolsasPageContent />
+    </PrivateRoute>
+  )
+}
+
+function BolsasPageContent() {
   return (
     <SidebarProvider>
       <AppSidebar variant="inset" />

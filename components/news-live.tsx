@@ -15,7 +15,6 @@ type Channel = {
   siteUrl?: string
 }
 
-// We don’t have an official m3u8 from freespeech.org, so we use their Live TV page via iframe.
 const DEFAULT_CHANNELS: Channel[] = [
   {
     id: "cnn",

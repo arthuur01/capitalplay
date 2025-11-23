@@ -4,11 +4,20 @@ import * as React from "react"
 import { AppSidebar } from "@/components/app-sidebar"
 import { SiteHeader } from "@/components/site-header"
 import { SidebarInset, SidebarProvider } from "@/components/ui/sidebar"
+import { PrivateRoute } from "@/components/PrivateRoute"
 import { NewsTable } from "@/components/news-table"
 import { NewsLive } from "@/components/news-live"
 import type { NewsItem, NewsResponse } from "@/types/news"
 
 export default function NoticiasPage() {
+  return (
+    <PrivateRoute>
+      <NoticiasPageContent />
+    </PrivateRoute>
+  )
+}
+
+function NoticiasPageContent() {
 	const [items, setItems] = React.useState<NewsItem[]>([])
 	const [loading, setLoading] = React.useState(false)
 	const [error, setError] = React.useState<string | null>(null)

@@ -1,0 +1,22 @@
+[
+  {
+    "id": "def1",
+    "pair": "BTC-BRL",
+    "name": "Bitcoin"
+  },
+  {
+    "id": "def2",
+    "pair": "USD-BRL",
+    "name": "Dólar"
+  },
+  {
+    "id": "def3",
+    "pair": "EUR-BRL",
+    "name": "Euro"
+  },
+  {
+    "id": "def4",
+    "pair": "XAU-BRL",
+    "name": "Ouro"
+  }
+]

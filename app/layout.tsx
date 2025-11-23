@@ -1,11 +1,6 @@
 import type { Metadata } from "next";
 import {Audiowide, Poiret_One, Outfit} from "next/font/google";
 import "./globals.css";
-import LoadingScreen from "@/app/loading";
-import ProgressBar from "@/components/ProgressBar";
-import Navbar from "@/components/Navbar";
-import { DotScreenShader } from "@/components/shader-background";
-
 
 export const metadata: Metadata = {
   title: "CAPITALPLAY | Projeto Oficial",
@@ -19,21 +14,21 @@ export const metadata: Metadata = {
 
 
 const audiowide = Audiowide({
-  weight: "400", // ou ['400', '700'] se quiser múltiplos pesos
+  weight: "400", // ou ['400', '700'] 
   subsets: ["latin"],
-  variable: "--font-audiowide", // opcional, útil se quiser integrar com Tailwind
+  variable: "--font-audiowide", // opcional
 });
 
 const poiret_one = Poiret_One({
-  weight: "400", // ou ['400', '700'] se quiser múltiplos pesos
+  weight: "400", // ou ['400', '700'] 
   subsets: ["latin"],
-  variable: "--font-poiret-one", // opcional, útil se quiser integrar com Tailwind
+  variable: "--font-poiret-one", // opcional
 });
 
 const outfit = Outfit({
-  weight: "400", // ou ['400', '700'] se quiser múltiplos pesos
+  weight: "400", // ou ['400', '700'] 
   subsets: ["latin"],
-  variable: "--font-outfit", // opcional, útil se quiser integrar com Tailwind
+  variable: "--font-outfit", // opcional
 });
 
 
@@ -45,7 +40,7 @@ export default function RootLayout({
     
   return (
     <html lang="en">
-      <body className={`${audiowide.variable} ${poiret_one.variable} ${outfit.variable}   antialiased`}>
+      <body className={`${audiowide.variable} ${poiret_one.variable} ${outfit.variable} antialiased`}>
         <main>{children}</main>
       </body>
     </html>

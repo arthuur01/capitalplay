@@ -1,7 +1,8 @@
 import { NextResponse } from "next/server"
 import { XMLParser } from "fast-xml-parser"
+import { newsSourcesDb } from "@/lib/local-db"
 
-// Revalidate this route every 60 seconds when deployed on Vercel
+// Revalidate this route every 60 seconds 
 export const revalidate = 60
 
 // Simple helper to coerce various date formats
@@ -22,32 +23,44 @@ function hashId(input: string): string {
 
 export async function GET() {
   try {
-    // Google News RSS em Português (tópico negócios). Pode ajustar a query conforme a necessidade.
-    const rssUrl =
-      "https://news.google.com/rss?hl=pt-BR&gl=BR&ceid=BR:pt-419&topic=B"
+    const urls: string[] = []
 
-    const res = await fetch(rssUrl, {
-      // Deixa o cache do lado do servidor se beneficiar por 60s
-      next: { revalidate: 60 },
-      headers: {
-        "user-agent":
-          "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0 Safari/537.36",
-      },
-    })
-
-    if (!res.ok) {
-      return NextResponse.json(
-        { error: `Falha ao obter RSS: ${res.status}` },
-        { status: 502 }
-      )
+    try {
+      const sources = await newsSourcesDb.getAll()
+      sources.forEach((source) => {
+        if (source.url) urls.push(source.url)
+      })
+    } catch (e) {
+      console.error("Error fetching news sources from DB, using default", e)
     }
 
-    const xml = await res.text()
-    const parser = new XMLParser({ ignoreAttributes: false })
-    const parsed = parser.parse(xml)
+    if (urls.length === 0) {
+       // Fallback if DB is empty or fails
+       urls.push("https://news.google.com/rss?hl=pt-BR&gl=BR&ceid=BR:pt-419&topic=B")
+    }
 
-    // Estrutura típica: rss.channel.item é um array
-    const items = (parsed?.rss?.channel?.item ?? []) as any[]
+    const fetchRss = async (url: string) => {
+      try {
+        const res = await fetch(url, {
+          next: { revalidate: 60 },
+          headers: {
+            "user-agent":
+              "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0 Safari/537.36",
+          },
+        })
+        if (!res.ok) return []
+        const xml = await res.text()
+        const parser = new XMLParser({ ignoreAttributes: false })
+        const parsed = parser.parse(xml)
+        return (parsed?.rss?.channel?.item ?? []) as any[]
+      } catch (e) {
+        console.error(`Error fetching RSS from ${url}`, e)
+        return []
+      }
+    }
+
+    const allItemsArrays = await Promise.all(urls.map(fetchRss))
+    const items = allItemsArrays.flat()
 
     const news = items.map((it) => {
       const title: string = it?.title ?? ""
@@ -63,6 +76,9 @@ export async function GET() {
         publishedAt: pubDate,
       }
     })
+
+    // Sort by date descending
+    news.sort((a, b) => new Date(b.publishedAt).getTime() - new Date(a.publishedAt).getTime())
 
     return NextResponse.json(
       { items: news },

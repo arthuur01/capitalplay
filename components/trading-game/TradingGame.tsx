@@ -22,19 +22,25 @@ interface Stock {
   history: PriceHistory[];
 }
 
-const initialStocks: Stock[] = [
-  { id: "1", name: "TechCorp", symbol: "TECH", price: 150, change: 0, owned: 0, history: [{ time: "0", price: 150 }] },
-  { id: "2", name: "BioMed Inc", symbol: "BIOM", price: 85, change: 0, owned: 0, history: [{ time: "0", price: 85 }] },
-  { id: "3", name: "EnergyPlus", symbol: "ENGY", price: 120, change: 0, owned: 0, history: [{ time: "0", price: 120 }] },
-  { id: "4", name: "RetailMax", symbol: "RETL", price: 60, change: 0, owned: 0, history: [{ time: "0", price: 60 }] },
-  { id: "5", name: "FinanceHub", symbol: "FINH", price: 200, change: 0, owned: 0, history: [{ time: "0", price: 200 }] },
-  { id: "6", name: "AutoDrive", symbol: "AUTO", price: 95, change: 0, owned: 0, history: [{ time: "0", price: 95 }] },
-];
-
 export const TradingGame = () => {
   const [cash, setCash] = useState(10000);
-  const [stocks, setStocks] = useState<Stock[]>(initialStocks);
+  const [stocks, setStocks] = useState<Stock[]>([]);
   const [initialCash] = useState(10000);
+
+  useEffect(() => {
+    const fetchCustomStocks = async () => {
+      try {
+        const res = await fetch("/api/admin/stocks");
+        if (res.ok) {
+          const data = await res.json();
+          setStocks(data);
+        }
+      } catch (error) {
+        console.error("Error fetching stocks:", error);
+      }
+    };
+    fetchCustomStocks();
+  }, []);
 
   const updatePrices = () => {
     setStocks((prevStocks) =>
@@ -102,7 +108,7 @@ export const TradingGame = () => {
 
   const resetGame = () => {
     setCash(10000);
-    setStocks(initialStocks);
+    setStocks(prev => prev.map(s => ({ ...s, owned: 0 })));
     toast.info("Jogo reiniciado!");
   };
 

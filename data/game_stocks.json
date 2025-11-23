@@ -1,0 +1,86 @@
+[
+  {
+    "id": "def1",
+    "name": "TechCorp",
+    "symbol": "TECH",
+    "price": 150,
+    "change": 0,
+    "owned": 0,
+    "history": [
+      {
+        "time": "0",
+        "price": 150
+      }
+    ]
+  },
+  {
+    "id": "def2",
+    "name": "BioMed Inc",
+    "symbol": "BIOM",
+    "price": 85,
+    "change": 0,
+    "owned": 0,
+    "history": [
+      {
+        "time": "0",
+        "price": 85
+      }
+    ]
+  },
+  {
+    "id": "def3",
+    "name": "EnergyPlus",
+    "symbol": "ENGY",
+    "price": 120,
+    "change": 0,
+    "owned": 0,
+    "history": [
+      {
+        "time": "0",
+        "price": 120
+      }
+    ]
+  },
+  {
+    "id": "def4",
+    "name": "RetailMax",
+    "symbol": "RETL",
+    "price": 60,
+    "change": 0,
+    "owned": 0,
+    "history": [
+      {
+        "time": "0",
+        "price": 60
+      }
+    ]
+  },
+  {
+    "id": "def5",
+    "name": "FinanceHub",
+    "symbol": "FINH",
+    "price": 200,
+    "change": 0,
+    "owned": 0,
+    "history": [
+      {
+        "time": "0",
+        "price": 200
+      }
+    ]
+  },
+  {
+    "id": "def6",
+    "name": "AutoDrive",
+    "symbol": "AUTO",
+    "price": 95,
+    "change": 0,
+    "owned": 0,
+    "history": [
+      {
+        "time": "0",
+        "price": 95
+      }
+    ]
+  }
+]

@@ -1,0 +1,57 @@
+[
+  {
+    "id": "def1",
+    "symbol": "BMFBOVESPA:IBOV",
+    "category": "Índices"
+  },
+  {
+    "id": "def2",
+    "symbol": "BMFBOVESPA:SMLL",
+    "category": "Índices"
+  },
+  {
+    "id": "def3",
+    "symbol": "SP:SPX",
+    "category": "Índices"
+  },
+  {
+    "id": "def4",
+    "symbol": "TVC:DXY",
+    "category": "Índices"
+  },
+  {
+    "id": "def5",
+    "symbol": "DJ:DJI",
+    "category": "Índices"
+  },
+  {
+    "id": "def6",
+    "symbol": "BMFBOVESPA:PETR4",
+    "category": "Ações"
+  },
+  {
+    "id": "def7",
+    "symbol": "BMFBOVESPA:ITSA4",
+    "category": "Ações"
+  },
+  {
+    "id": "def8",
+    "symbol": "BMFBOVESPA:VALE3",
+    "category": "Ações"
+  },
+  {
+    "id": "def9",
+    "symbol": "BMFBOVESPA:MGLU3",
+    "category": "Ações"
+  },
+  {
+    "id": "def10",
+    "symbol": "CRYPTO:BTCUSD",
+    "category": "Cripto"
+  },
+  {
+    "id": "d1e51fb9-8d63-411a-9d8c-d3a9eabff848",
+    "symbol": "CRYPTO:ETHUSD",
+    "category": "Cripto"
+  }
+]

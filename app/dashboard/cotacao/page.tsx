@@ -4,9 +4,18 @@ import * as React from "react"
 import { AppSidebar } from "@/components/app-sidebar"
 import { SiteHeader } from "@/components/site-header"
 import { SidebarInset, SidebarProvider } from "@/components/ui/sidebar"
+import { PrivateRoute } from "@/components/PrivateRoute"
 import { FxChart } from "@/components/fx-chart"
 
 export default function CotacaoPage() {
+  return (
+    <PrivateRoute>
+      <CotacaoPageContent />
+    </PrivateRoute>
+  )
+}
+
+function CotacaoPageContent() {
   return (
     <SidebarProvider>
       <AppSidebar variant="inset" />

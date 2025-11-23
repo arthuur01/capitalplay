@@ -25,7 +25,7 @@ export async function GET(request: Request) {
 
     const { start, end } = computeDates(range)
 
-    // Frankfurter.app timeseries: https://www.frankfurter.app/docs/
+    //https://www.frankfurter.app/docs/
     const url = `https://api.frankfurter.app/${start}..${end}?from=${base}&to=${quote}`
     const res = await fetch(url, { next: { revalidate } })
     if (!res.ok) throw new Error(`Upstream ${res.status}`)

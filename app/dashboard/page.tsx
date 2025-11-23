@@ -9,6 +9,7 @@ import { SidebarInset, SidebarProvider } from "@/components/ui/sidebar";
 import { Card } from "@/components/ui/card";
 import { IbovChart } from "@/components/ibov-chart";
 import { NewsTable } from "@/components/news-table";
+import { PrivateRoute } from "@/components/PrivateRoute";
 import type { NewsItem, NewsResponse } from "@/types/news";
 
 
@@ -20,6 +21,14 @@ import type { NewsItem, NewsResponse } from "@/types/news";
 
 // Página principal
 export default function Page() {
+  return (
+    <PrivateRoute>
+      <DashboardContent />
+    </PrivateRoute>
+  );
+}
+
+function DashboardContent() {
   // Estado de notícias para exibir tabela abaixo do gráfico
   const [items, setItems] = useState<NewsItem[]>([]);
   const [loading, setLoading] = useState(false);
