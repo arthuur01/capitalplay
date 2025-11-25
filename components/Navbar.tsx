@@ -67,6 +67,14 @@ export default function Navbar() {
             >
               Entrar
             </button>
+            <Link
+              href="https://bristle-mandevilla-e3e.notion.site/Documenta-o-CapitalPlay-2aff4f91f52980969e65e929dbf3273c"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="ml-4 text-white font-bold py-2 px-4 hover:text-gray-300 transition-colors"
+            >
+              Docs
+            </Link>
           </div>
         </div>
       </div>
