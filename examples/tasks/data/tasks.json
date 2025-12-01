@@ -1,0 +1,23 @@
+[
+  {
+    "id": "TASK-8782",
+    "title": "You can't compress the program without analyzing the SQL array!",
+    "status": "in progress",
+    "label": "documentation",
+    "priority": "medium"
+  },
+  {
+    "id": "TASK-7878",
+    "title": "The Byte Quartet",
+    "status": "backlog",
+    "label": "feature",
+    "priority": "medium"
+  },
+  {
+    "id": "TASK-7839",
+    "title": "Redesign the CMS database schema",
+    "status": "backlog",
+    "label": "feature",
+    "priority": "high"
+  }
+]

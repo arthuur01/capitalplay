@@ -11,7 +11,7 @@ import { IbovChart } from "@/components/ibov-chart";
 import { NewsTable } from "@/components/news-table";
 import { PrivateRoute } from "@/components/PrivateRoute";
 import type { NewsItem, NewsResponse } from "@/types/news";
-
+import { TaskPage } from "@/components/tasks/tasks";
 
 
 // Função para verificar se o mercado está aberto (horário de NY)
@@ -73,33 +73,9 @@ function DashboardContent() {
             <SectionCards />
             {/* Gráfico */}
             <IbovChart />
-            {/* Notícias abaixo do gráfico com container rolável */}
-            <div>
-              <div className="mb-2">
-                <h2 className="text-xl font-semibold">Notícias de Mercado</h2>
-                <p className="text-sm text-muted-foreground">
-                  Feed agregado do Google News (Negócios) — atualiza a cada 1 minuto.
-                </p>
-              </div>
-              <div className="max-h-[360px] overflow-y-auto pr-1">
-                <NewsTable
-                  items={items}
-                  loading={loading}
-                  error={error}
-                  onRefresh={() => {
-                    // acionando atualização manual
-                    fetch("/api/noticias", { cache: "no-store" })
-                      .then(async (res) => {
-                        if (!res.ok) throw new Error(`HTTP ${res.status}`);
-                        const data: NewsResponse = await res.json();
-                        setItems(data.items ?? []);
-                        setLastUpdated(new Date());
-                      })
-                      .catch((e) => setError(e?.message ?? "Erro desconhecido"));
-                  }}
-                  lastUpdated={lastUpdated}
-                />
-              </div>
+            {/* Tasks */}
+            <div className="rounded-lg border">
+              <TaskPage />
             </div>
           </div>
         </div>
