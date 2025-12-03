@@ -6,6 +6,8 @@ import { SiteHeader } from "@/components/site-header"
 import { SidebarInset, SidebarProvider } from "@/components/ui/sidebar"
 import { PrivateRoute } from "@/components/PrivateRoute"
 import { TradingGame } from "@/components/trading-game/TradingGame"
+import { MetasPage } from "@/components/metas/metas"
+import { Separator } from "@/components/ui/separator"
 
 export default function TradingPage() {
   return (
@@ -30,6 +32,10 @@ function TradingPageContent() {
           </div>
 
           <TradingGame />
+          
+          <Separator className="my-6" />
+          
+          <MetasPage />
         </div>
       </SidebarInset>
     </SidebarProvider>
