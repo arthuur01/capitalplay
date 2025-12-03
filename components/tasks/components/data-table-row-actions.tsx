@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { Row } from "@tanstack/react-table";
 import { MoreHorizontal, Trash2 } from "lucide-react";
+import { User } from "firebase/auth";
 
 import { Button } from "@/components/ui/button";
 import {
@@ -25,7 +26,6 @@ import {
 } from "@/components/ui/alert-dialog";
 
 import { taskDisplaySchema } from "../data/schema";
-import { DataTableContext } from "./data-table";
 import { EditTaskDialog } from "./edit-task-dialog";
 
 interface DataTableRowActionsProps<TData> {
@@ -36,10 +36,9 @@ interface DataTableRowActionsProps<TData> {
 
 export function DataTableRowActions<TData>({ row, user, onRefresh }: DataTableRowActionsProps<TData>) {
   const task = taskDisplaySchema.parse(row.original);
-  // Fallback to meta if props are not provided (for backward compatibility or if used via meta)
-  const meta = row.table?.options?.meta as DataTableContext | undefined;
-  const currentUser = user || meta?.user;
-  const currentOnRefresh = onRefresh || meta?.onRefresh;
+  
+  const currentUser = user;
+  const currentOnRefresh = onRefresh;
 
   const [deleteOpen, setDeleteOpen] = useState(false);
   const [editOpen, setEditOpen] = useState(false);
