@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import {Audiowide, Poiret_One, Outfit} from "next/font/google";
 import "./globals.css";
+import { Toaster } from "@/components/ui/sonner";
 
 export const metadata: Metadata = {
   title: "CAPITALPLAY | Projeto Oficial",
@@ -42,6 +43,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={`${audiowide.variable} ${poiret_one.variable} ${outfit.variable} antialiased`}>
         <main>{children}</main>
+        <Toaster />
       </body>
     </html>
   );

@@ -30,7 +30,7 @@ export default function Navbar() {
 
     if (!loggedUser.email) return;
 
-    if (loggedUser.email === "capitalplay01@gmail.com") {
+    if (loggedUser.email === "amiguelvieiramapa@gmail.com") {
       router.push("/admin");
     } else {
       router.push("/dashboard");

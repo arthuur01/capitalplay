@@ -15,7 +15,6 @@ import {
   ArrowRightLeft,
   Earth,
   Book,
-  Target,
 } from "lucide-react"
 
 import { NavMain } from "@/components/nav-main"
@@ -113,7 +112,7 @@ const data = {
       ],
     },
   ],
-   navSecondary: [
+  navSecondary: [
     {
       title: "Docs",
       url: "https://bristle-mandevilla-e3e.notion.site/Documenta-o-CapitalPlay-2aff4f91f52980969e65e929dbf3273c",
@@ -160,10 +159,10 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
       <SidebarContent>
         <NavMain items={data.navMain} />
         
-        <NavSecondary items={data.navSecondary} className="mt-auto"/>
+        
       </SidebarContent>
       <SidebarFooter>
-
+        <NavSecondary items={data.navSecondary}/>
         <NavUser />
       </SidebarFooter>
     </Sidebar>

@@ -2,10 +2,10 @@
 
 import {
   BellIcon,
-  CreditCardIcon,
   LogOutIcon,
   MoreVerticalIcon,
-  UserCircleIcon,
+  WalletCardsIcon,
+  BanknoteArrowUp
 } from "lucide-react";
 
 import {
@@ -31,6 +31,7 @@ import {
 
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
+import Link from "next/link";
 import { auth } from "../firebaseConfig";
 import {
   onAuthStateChanged,
@@ -106,26 +107,26 @@ export function NavUser() {
                 </div>
               </div>
             </DropdownMenuLabel>
-
             <DropdownMenuSeparator />
-
             <DropdownMenuGroup>
+              <Link href="/dashboard/assinaturas" className="cursor-pointer">
               <DropdownMenuItem>
-                <UserCircleIcon />
-                Conta
+                <BanknoteArrowUp />
+                Faça Upgrade
               </DropdownMenuItem>
+              </Link>
+              <Link href="/dashboard/payment" className="cursor-pointer">
               <DropdownMenuItem>
-                <CreditCardIcon />
-                Pagamentos
+                <WalletCardsIcon />
+                  Pagamentos
               </DropdownMenuItem>
+              </Link>
               <DropdownMenuItem>
                 <BellIcon />
                 Notificações
               </DropdownMenuItem>
             </DropdownMenuGroup>
-
             <DropdownMenuSeparator />
-
             <DropdownMenuItem onClick={handleLogout}>
               <LogOutIcon />
               Sair
