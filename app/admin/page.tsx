@@ -6,7 +6,7 @@ import { AdminSubscriptions } from "@/components/admin/AdminSubscriptions";
 
 export default function AdminPage() {
   return (
-    <PrivateRoute requiredEmail="amiguelvieiramapa@gmail.com">
+    <PrivateRoute requiredEmail="capitalplay01@gmail.com">
       <AdminPageContent />
     </PrivateRoute>
   );
