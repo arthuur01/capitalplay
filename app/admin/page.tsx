@@ -17,7 +17,7 @@ function AdminPageContent() {
   return (
     <div className="container mx-auto py-6 space-y-8">
       <div className="flex flex-col gap-2">
-        <h1 className="text-3xl font-bold tracking-tight">Painel Administrativo</h1>
+        <h1 className="text-3xl font-bold tracking-tight">Painel Admin</h1>
         <p className="text-muted-foreground">Gerencie o conteúdo e configurações da plataforma.</p>
       </div>
 
