@@ -65,7 +65,7 @@ export default function Navbar() {
               onClick={loginGoogle}
               className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full cursor-pointer"
             >
-              Entrar
+              Login
             </button>
             <Link
               href="https://bristle-mandevilla-e3e.notion.site/Documenta-o-CapitalPlay-2aff4f91f52980969e65e929dbf3273c"
