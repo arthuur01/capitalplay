@@ -1,6 +1,5 @@
 # CapitalPlay — Plataforma Gamificada de Educação Financeira
 🔗 **Demo em produção:** [capitalplay.vercel.app](https://capitalplay.vercel.app)
-> **Dica:** Adicione um print do dashboard financeiro em `public/preview.png` e descomente a linha abaixo:
 > ![Preview do CapitalPlay](preview.png)
 ---
 ## 🎯 Problema Resolvido
